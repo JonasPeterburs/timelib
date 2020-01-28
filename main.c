@@ -163,7 +163,8 @@ int main()
         {
             printf("\n");
         }
-    } while (exists_date(day, month, year) != 1);
+    }
+    while (exists_date(day, month, year) != 1);
 
     printf("%i.%i.%i --> %i", day, month, year, day_of_the_year(day, month, year));
 
