@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define DATE_ERROR "\nERROR : Datum ungültig.\n\n"
+
 /*
   Beschreibung:
   Die Funktion berechnet für ein gegebenes Datum des gregorianischen Kalenders bestehend aus Tag,
@@ -30,17 +32,19 @@ int day_of_the_year(int day, int month, int year)
 {
     int totalDays = 0;
 
-    // continue here
-
-    // Addiert alle Monate zusammen, welche vor dem Angegebenden Moant sind.
-    for (int i = 1; i < month; i++)
+    if (exists_date(day, month, year) == 0)
     {
-        totalDays += daysInYear[i];
+        return -1;
     }
 
-    // Ausgabe des Ergebnisses
-    printf("Der %i.%i.%i ist der %i Tag im Jahr.\n", day, month, year, totalDays += day);
-    return 0;
+    for (int i = 1; i < month; i++)
+    {
+        totalDays += get_days_for_month(i, year);
+    }
+
+    totalDays += day;
+
+    return totalDays;
 }
 
 /*
@@ -56,9 +60,16 @@ int day_of_the_year(int day, int month, int year)
 */
 int is_leapyear(int year)
 {
-    if (year < 1582) return -1;
-    else if ((year%4 == 0 && year%100 != 0) || year%400 == 0) { return 1; }
-    else { return 0; }
+    if (year < 1582)
+        return -1;
+    else if ((year%4 == 0 && year%100 != 0) || year%400 == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 /*
@@ -75,10 +86,20 @@ int get_days_for_month(int month, int year)
 {
     int daysInYear[13] = {0, 31,28,31,30,31,30,31,31,30,31,30,31};
 
-    if (month < 1 || month > 12) { return -1; }
+    if (month < 1 || month > 12)
+    {
+        printf(DATE_ERROR);
+        return -1;
+    }
 
-    if (is_leapyear(year)) { daysInYear[2] = 29; }
-    else { daysInYear[2] = 28; }
+    if (is_leapyear(year))
+    {
+        daysInYear[2] = 29;
+    }
+    else
+    {
+        daysInYear[2] = 28;
+    }
 
     return daysInYear[month];
 }
@@ -94,16 +115,23 @@ int get_days_for_month(int month, int year)
 */
 int exists_date(int day, int month, int year)
 {
-    if (day < 1 || month < 1 || year < 1582 || day > 31 || month > 12 || year > 2400) return 0;
-    else if (month = 2 && day > 29) { return 0; }
-    else { return 1; }
+    if (day < 1 || month < 1 || year < 1582 || day > 31 || month > 12 || year > 2400)
+    {
+        return 0;
+        printf(DATE_ERROR);
+    }
+    else if (month = 2 && day > 29)
+    {
+        return 0;
+        printf(DATE_ERROR);
+    }
+    else
+    {
+        return 1;
+    }
 }
 
 
-// ------------------------------------------------------------
-int validateDate(int day, int month, int year, int daysInYear[]);
-int checkLeapYear(int year);
-int sendResult(int day, int month, int year, int daysInYear[]);
 
 int main()
 {
@@ -113,45 +141,31 @@ int main()
     // Eingabe der Werte
     printf("Tool zur berechnung des Tages im Jahr.\n");
 
-    printf("Tag: ");
-    scanf("%i", &day);
-    fflush(stdin);
-
-    printf("Monat: ");
-    scanf("%i", &month);
-    fflush(stdin);
-
-    printf("Jahr: ");
-    scanf("%i", &year);
-    fflush(stdin);
-
-
-
-    validateDate(day, month, year, daysInYear);
-
-    sendResult(day, month, year, daysInYear);
-
-    return 0;
-}
-
-
-
-
-
-/*
-  Bereitstellung und ausgabe der Werte
-*/
-int sendResult(int day, int month, int year, int daysInYear[])
-{
-    int totalDays = 0;
-
-    // Addiert alle Monate zusammen, welche vor dem Angegebenden Moant sind.
-    for (int i = 1; i < month; i++)
+    do
     {
-        totalDays += daysInYear[i];
-    }
+        printf("Tag: ");
+        scanf("%i", &day);
+        fflush(stdin);
 
-    // Ausgabe des Ergebnisses
-    printf("Der %i.%i.%i ist der %i Tag im Jahr.\n", day, month, year, totalDays += day);
+        printf("Monat: ");
+        scanf("%i", &month);
+        fflush(stdin);
+
+        printf("Jahr: ");
+        scanf("%i", &year);
+        fflush(stdin);
+
+        if (exists_date(day, month, year) != 1)
+        {
+            printf(DATE_ERROR);
+        }
+        else
+        {
+            printf("\n");
+        }
+    } while (exists_date(day, month, year) != 1);
+
+    printf("%i.%i.%i --> %i", day, month, year, day_of_the_year(day, month, year));
+
     return 0;
 }
