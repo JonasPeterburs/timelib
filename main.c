@@ -20,30 +20,31 @@ int validateDate(int day, int month, int year, int daysInYear[]);
 int checkLeapYear(int year);
 int sendResult(int day, int month, int year, int daysInYear[]);
 
-int main() {
-  int day, month, year;
-  int daysInYear[13] = {0, 31,28,31,30,31,30,31,31,30,31,30,31};
+int main()
+{
+    int day, month, year;
+    int daysInYear[13] = {0, 31,28,31,30,31,30,31,31,30,31,30,31};
 
-  // Eingabe der Werte
-  printf("Tool zur berechnung des Tages im Jahr.\n");
+    // Eingabe der Werte
+    printf("Tool zur berechnung des Tages im Jahr.\n");
 
-  printf("Tag: ");
-  scanf("%i", &day);
-  fflush(stdin);
+    printf("Tag: ");
+    scanf("%i", &day);
+    fflush(stdin);
 
-  printf("Monat: ");
-  scanf("%i", &month);
-  fflush(stdin);
+    printf("Monat: ");
+    scanf("%i", &month);
+    fflush(stdin);
 
-  printf("Jahr: ");
-  scanf("%i", &year);
-  fflush(stdin);
+    printf("Jahr: ");
+    scanf("%i", &year);
+    fflush(stdin);
 
-  validateDate(day, month, year, daysInYear);
+    validateDate(day, month, year, daysInYear);
 
-  sendResult(day, month, year, daysInYear);
+    sendResult(day, month, year, daysInYear);
 
-  return 0;
+    return 0;
 }
 
 /*
@@ -51,26 +52,31 @@ int main() {
   Tag nicht über 31 und nicht über Monatsgrenze
   Monat nicht über 12
 */
-int validateDate(int day, int month, int year, int daysInYear[]) {
-  // Validirung des Tages, Monats und Jahres (nicht negativ oder 0)
-  if (day <= 0 || month <= 0 || year <= 0 || day > 31 || month > 12) {
-    printf("Error! Werte unrealistisch.\n");
-    printf("Bitte überprüfen Sie ihre Eingabe. (got: %i.%i.%i)\n", day, month, year);
-    return 0;
-  }
-
-  // Überprüung auf Schaltjahr wenn der angegebende Monat 02 entspricht (Februar)
-  if (month >= 2) {
-    if (checkLeapYear(year)) {
-      daysInYear[2] = 29;
+int validateDate(int day, int month, int year, int daysInYear[])
+{
+    // Validirung des Tages, Monats und Jahres (nicht negativ oder 0)
+    if (day <= 0 || month <= 0 || year <= 0 || day > 31 || month > 12)
+    {
+        printf("Error! Werte unrealistisch.\n");
+        printf("Bitte überprüfen Sie ihre Eingabe. (got: %i.%i.%i)\n", day, month, year);
+        return 0;
     }
-  }
 
-  // Überprüfung ob Tag im Monat moglich ist
-  if (day > daysInYear[month]) {
+    // Überprüung auf Schaltjahr wenn der angegebende Monat 02 entspricht (Februar)
+    if (month >= 2)
+    {
+        if (checkLeapYear(year))
+        {
+            daysInYear[2] = 29;
+        }
+    }
+
+    // Überprüfung ob Tag im Monat moglich ist
+    if (day > daysInYear[month])
+    {
+        return 0;
+    }
     return 0;
-  }
-  return 0;
 }
 
 /*
@@ -84,29 +90,34 @@ int validateDate(int day, int month, int year, int daysInYear[]) {
 
   Quelle: https://de.wikipedia.org/wiki/Schaltjahr
 */
-int checkLeapYear(int year) {
-  if ((year%4 == 0 && year%100 != 0) || year%400 == 0) {
-      printf("Jahr ist ein Schaltjahr");
-      return 1;
-  }
-  else {
-      printf("Jahr ist kein Schaltjahr");
-      return 0;
-  }
+int checkLeapYear(int year)
+{
+    if ((year%4 == 0 && year%100 != 0) || year%400 == 0)
+    {
+        printf("Jahr ist ein Schaltjahr");
+        return 1;
+    }
+    else
+    {
+        printf("Jahr ist kein Schaltjahr");
+        return 0;
+    }
 }
 
 /*
   Bereitstellung und ausgabe der Werte
 */
-int sendResult(int day, int month, int year, int daysInYear[]) {
-  int totalDays = 0;
+int sendResult(int day, int month, int year, int daysInYear[])
+{
+    int totalDays = 0;
 
-  // Addiert alle Monate zusammen, welche vor dem Angegebenden Moant sind.
-  for (int i = 1; i < month; i++) {
-    totalDays += daysInYear[i];
-  }
+    // Addiert alle Monate zusammen, welche vor dem Angegebenden Moant sind.
+    for (int i = 1; i < month; i++)
+    {
+        totalDays += daysInYear[i];
+    }
 
-  // Ausgabe des Ergebnisses
-  printf("Der %i.%i.%i ist der %i Tag im Jahr.\n", day, month, year, totalDays += day);
-  return 0;
+    // Ausgabe des Ergebnisses
+    printf("Der %i.%i.%i ist der %i Tag im Jahr.\n", day, month, year, totalDays += day);
+    return 0;
 }
