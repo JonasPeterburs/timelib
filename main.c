@@ -18,6 +18,7 @@
 
 #define DATE_ERROR "\nERROR : Datum ungültig.\n\n"
 
+
 /*
   Beschreibung:
   Die Funktion berechnet für ein gegebenes Datum des gregorianischen Kalenders bestehend aus Tag,
@@ -31,13 +32,14 @@
 int day_of_the_year(int day, int month, int year)
 {
     int totalDays = 0;
+    int i;
 
     if (exists_date(day, month, year) == 0)
     {
         return -1;
     }
 
-    for (int i = 1; i < month; i++)
+    for (i = 1; i < month; i++)
     {
         totalDays += get_days_for_month(i, year);
     }
@@ -45,6 +47,41 @@ int day_of_the_year(int day, int month, int year)
     totalDays += day;
 
     return totalDays;
+}
+
+/*
+  Die Funktion liest 3 Ganzzahlwerte (Integer) ein, für Tag, Monat und Jahr.
+  Wenn das angegebene Datum ungültig ist, wird erneut eingelesen, solange bis ein gültiges Datum eingegeben wurde.
+*/
+int input_date(int *day, int *month, int *year)
+{
+    // Eingabe der Werte
+    printf("Tool zur berechnung des Tages im Jahr.\n");
+
+    do
+    {
+        printf("Tag: ");
+        scanf("%i", day);
+        fflush(stdin);
+
+        printf("Monat: ");
+        scanf("%i", month);
+        fflush(stdin);
+
+        printf("Jahr: ");
+        scanf("%i", year);
+        fflush(stdin);
+
+        if (exists_date(*day, *month, *year) != 1)
+        {
+            printf(DATE_ERROR);
+        }
+        else
+        {
+            printf("\n");
+        }
+    }
+    while (exists_date(*day, *month, *year) != 1);
 }
 
 /*
@@ -137,36 +174,8 @@ int main()
 {
     int day, month, year;
 
-
-    // Eingabe der Werte
-    printf("Tool zur berechnung des Tages im Jahr.\n");
-
-    do
-    {
-        printf("Tag: ");
-        scanf("%i", &day);
-        fflush(stdin);
-
-        printf("Monat: ");
-        scanf("%i", &month);
-        fflush(stdin);
-
-        printf("Jahr: ");
-        scanf("%i", &year);
-        fflush(stdin);
-
-        if (exists_date(day, month, year) != 1)
-        {
-            printf(DATE_ERROR);
-        }
-        else
-        {
-            printf("\n");
-        }
-    }
-    while (exists_date(day, month, year) != 1);
+    input_date(&day, &month, &year);
 
     printf("%i.%i.%i --> %i", day, month, year, day_of_the_year(day, month, year));
-
     return 0;
 }
