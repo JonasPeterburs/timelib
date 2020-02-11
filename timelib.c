@@ -1,18 +1,21 @@
+/**
+ * \author Jonas Peterburs
+ * \date 14.01.2020
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
-#define DATE_ERROR "\nERROR : Datum ungültig.\n\n"
+#define DATE_ERROR "\nERROR : date invalid.\n\n"
 
-/* *
- * Beschreibung:
- * Die Funktion berechnet für ein gegebenes Datum des gregorianischen Kalenders bestehend aus Tag,
- * Monat und Jahr die Nummer des Tages, gezählt von Jahresbeginn (1. Januar) an.
- * Schaltjahre werden bei der Berechnung berücksichtigt.
- * Ist das übergebene Datum ungültig, beträgt der Rückgabewert -1.
+
+/** \brief Calculation for the day of the year.
  *
- * Rückgabewert:
- * Nummer des Tages: int
- * */
+ * \param day int
+ * \param month int
+ * \param year int
+ * \return int
+ *
+ */
 int day_of_the_year(int day, int month, int year)
 {
     int totalDays = 0;
@@ -33,33 +36,32 @@ int day_of_the_year(int day, int month, int year)
     return totalDays;
 }
 
-/* *
- * Beschreibung:
- * Die Funktion liest 3 Ganzzahlwerte (Integer) ein, für Tag, Monat und Jahr.
- * Wenn das angegebene Datum ungültig ist, wird erneut eingelesen, solange bis ein gültiges Datum eingegeben wurde.
+/** \brief Reads user date input.
  *
- * Rückgabewert:
- * kein Rückgabewert
- * */
-int input_date(int *day, int *month, int *year)
+ * \param day int*
+ * \param month int*
+ * \param year int*
+ * \return void
+ *
+ */
+void input_date(int *day, int *month, int *year)
 {
-    // Eingabe der Werte
-    printf("Tool zur berechnung des Tages im Jahr.\n");
+    printf("Calculation for day of the year.\n");
 
     do
     {
-	// reset Pointers
-	*day = 0, *month = 0, *year = 0;
+        // reset Pointers
+        *day = 0, *month = 0, *year = 0;
 
-        printf("Tag: ");
+        printf("Day: ");
         scanf("%i", day);
         fflush(stdin);
 
-        printf("Monat: ");
+        printf("Month: ");
         scanf("%i", month);
         fflush(stdin);
 
-        printf("Jahr: ");
+        printf("Year: ");
         scanf("%i", year);
         fflush(stdin);
 
@@ -75,17 +77,12 @@ int input_date(int *day, int *month, int *year)
     while (exists_date(*day, *month, *year) != 1);
 }
 
-/* *
- * Beschreibung:
- * Die Funktion überprüft, ob ein gegebenes Jahr nach den Regeln des
- * gregorianischen Kalender ein Schaltjahr ist.
- * Bei Jahreszahlen vor dem Jahr 1582 wird ein Fehler zurückgegeben.
+/** \brief Checks if year is a leap year.
  *
- * Rückgabewert:
- * 1, wenn übergebenes Jahr ein Schaltjahr ist
- * 0, wenn übergebenes Jahr kein Schaltjahr ist
- * -1, wenn ein ungültiges Jahr übergeben wurde
- * */
+ * \param year int
+ * \return int
+ *
+ */
 int is_leapyear(int year)
 {
     if (year < 1582)
@@ -100,16 +97,13 @@ int is_leapyear(int year)
     }
 }
 
-/* *
- * Beschreibung:
- * Die Funktion bestimmt für einen gegebenen Monat eines gegebenen Jahres,
- * wie viele Tage der Monat hat. Der Wert des Monats muss zwischen 1 und 12 liegen.
- * Schaltjahre werden berücksichtigt.
+/** \brief Gets days of the given month.
  *
- * Rückgabewert:
- * Anzahl von Tagen: int, 1-31, wenn ein gültiger Monar eingegeben wurde
- * -1, wenn ein ungültiger Monat oder Jahr übergeben wurde
- * */
+ * \param month int
+ * \param year int
+ * \return int
+ *
+ */
 int get_days_for_month(int month, int year)
 {
     int daysInYear[13] = {0, 31,28,31,30,31,30,31,31,30,31,30,31};
@@ -132,15 +126,14 @@ int get_days_for_month(int month, int year)
     return daysInYear[month];
 }
 
-/*
- * Beschreibung:
- * Die Funktion überprüft, ob ein eingegebenes Datum gültig ist.
- * Daten vor dem 1.1.1582 sind ungültig, genauso wie alle Daten nach dem 31.12.2400.
+/** \brief Validates given date.
  *
- * Rückgabewert:
- * 1, wenn das übergebene Datum gültig ist
- * 0, wenn das Datum nicht gültig ist
-*/
+ * \param day int
+ * \param month int
+ * \param year int
+ * \return int
+ *
+ */
 int exists_date(int day, int month, int year)
 {
     if (day < 1 || month < 1 || year < 1582 || day > 31 || month > 12 || year > 2400)
