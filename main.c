@@ -1,4 +1,5 @@
 #include "timelib.h"
+#include "<stdio.h>"
 
 /** \brief Example usage.
  *
