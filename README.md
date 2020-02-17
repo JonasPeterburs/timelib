@@ -5,7 +5,7 @@
   </p>
   <br />
   <p>
-    <img src="https://github.com/jpeterburs/timelib/workflows/Build/badge.svg" alt="Build">
+    <a href="https://github.com/jpeterburs/timelib/actions"><img src="https://github.com/jpeterburs/timelib/workflows/Build/badge.svg" alt="Build"></a>
   </p>
 </div>
 
@@ -37,5 +37,5 @@ int main()
 ```
 
 ## Links
-* [Documentation](#)
+* [Documentation (WIP)](#)
 * [GitHub](https://github.com/jpeterburs/timelib/)
