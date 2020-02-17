@@ -8,6 +8,26 @@
 #define DATE_ERROR "\nERROR : date invalid.\n\n"
 
 
+/** \brief Checks if year is a leap year.
+ *
+ * \param year int
+ * \return int
+ *
+ */
+int is_leapyear(int year)
+{
+    if (year < 1582)
+        return -1;
+    else if ((year%4 == 0 && year%100 != 0) || year%400 == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 /** \brief Validates given date.
  *
  * \param day int
@@ -130,24 +150,4 @@ void input_date(int *day, int *month, int *year)
         }
     }
     while (exists_date(*day, *month, *year) != 1);
-}
-
-/** \brief Checks if year is a leap year.
- *
- * \param year int
- * \return int
- *
- */
-int is_leapyear(int year)
-{
-    if (year < 1582)
-        return -1;
-    else if ((year%4 == 0 && year%100 != 0) || year%400 == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
 }
