@@ -37,5 +37,5 @@ int main()
 ```
 
 ## Links
-* [Documentation](#)
+* [Documentation (WIP)](#)
 * [GitHub](https://github.com/jpeterburs/timelib/)
