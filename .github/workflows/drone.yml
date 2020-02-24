@@ -1,4 +1,4 @@
-name: Build
+name: Drone
 on: [push]
 jobs:
   build:
