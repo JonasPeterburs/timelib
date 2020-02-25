@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define LAST_YEAR_OF_USAGE 2400
+
 #define DATE_ERROR "\nERROR : date invalid.\n\n"
 
 
@@ -16,8 +18,12 @@
  */
 int is_leapyear(int year)
 {
+    // Leap year calculation based of: https://en.wikipedia.org/wiki/Calendar_reform
     if (year < 1582)
+    {
         return -1;
+    }
+    // year must be divisible by 4 and 400 or not by 100
     else if ((year%4 == 0 && year%100 != 0) || year%400 == 0)
     {
         return 1;
@@ -38,7 +44,7 @@ int is_leapyear(int year)
  */
 int exists_date(int day, int month, int year)
 {
-    if (day < 1 || month < 1 || year < 1582 || day > 31 || month > 12 || year > 2400)
+    if (day < 1 || month < 1 || year < 1582 || day > 31 || month > 12 || year > LAST_YEAR_OF_USAGE)
     {
         return 0;
         printf(DATE_ERROR);
@@ -121,8 +127,6 @@ int day_of_the_year(int day, int month, int year)
  */
 void input_date(int *day, int *month, int *year)
 {
-    printf("Calculation for day of the year.\n");
-
     do
     {
         // reset Pointers
