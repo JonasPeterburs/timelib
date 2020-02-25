@@ -10,31 +10,19 @@
 </div>
 
 ## Table of contents
-- [About](#about)
+- [Overview](#overview)
 - [Installation](#installation)
-- [Example Usage](#example-usage)
 - [Links](#links)
 
-## About
+## Overview
 Timelib is a library that allows you to interact with time.
 
 ## Installation
-
-## Example usage
-```c
-#include "timelib.h"
-#include <stdio.h>
-
-int main()
-{
-    int day, month, year;
-
-    input_date(&day, &month, &year);
-
-    printf("%i.%i.%i --> %i", day, month, year, day_of_the_year(day, month, year));
-    return 0;
-}
+To compile run
+```sh
+make
 ```
+or use the build in compiler from CodeBlocks
 
 ## Links
 * [Documentation (WIP)](#)
