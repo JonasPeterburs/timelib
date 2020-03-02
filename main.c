@@ -1,5 +1,6 @@
-#include "timelib.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include "timelib.h"
 
 /** \brief Example usage.
  *
@@ -8,12 +9,10 @@
  */
 int main()
 {
-    int day, month, year;
-
     printf("Calculation of the day of the year.\n\n");
 
-    input_date(&day, &month, &year);
+    struct date current_date = input_date();
 
-    printf("%i.%i.%i --> %i\n", day, month, year, day_of_the_year(day, month, year));
+    printf("%i.%i.%i --> %i\n", current_date.day, current_date.month, current_date.year, day_of_the_year(current_date));
     return 0;
 }
