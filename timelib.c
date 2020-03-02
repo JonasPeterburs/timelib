@@ -4,6 +4,7 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include "timelib.h"
 
 #define LAST_YEAR_OF_USAGE 2400
 
@@ -36,20 +37,22 @@ int is_leapyear(int year)
 
 /** \brief Validates given date.
  *
- * \param day int
- * \param month int
- * \param year int
+ * \param current_date struct
  * \return int
  *
  */
-int exists_date(int day, int month, int year)
+int exists_date(struct date current_date)
 {
-    if (day < 1 || month < 1 || year < 1582 || day > 31 || month > 12 || year > LAST_YEAR_OF_USAGE)
+    if (
+        current_date.day < 1 || current_date.day > 31 ||
+        current_date.month < 1 || current_date.month > 12 ||
+        current_date.year < 1582 || current_date.year > LAST_YEAR_OF_USAGE
+        )
     {
         return 0;
         printf(DATE_ERROR);
     }
-    else if (month = 2 && day > 29)
+    else if (current_date.month = 2 && current_date.day > 29)
     {
         return 0;
         printf(DATE_ERROR);
@@ -91,60 +94,56 @@ int get_days_for_month(int month, int year)
 
 /** \brief Calculation for the day of the year.
  *
- * \param day int
- * \param month int
- * \param year int
+ * \param current_date struct
  * \return int
  *
  */
-int day_of_the_year(int day, int month, int year)
+int day_of_the_year(struct date current_date)
 {
     int totalDays = 0;
     int i;
 
-    if (exists_date(day, month, year) == 0)
+    if (exists_date(current_date) == 0)
     {
         return -1;
     }
 
-    for (i = 1; i < month; i++)
+    for (i = 1; i < current_date.month; i++)
     {
-        totalDays += get_days_for_month(i, year);
+        totalDays += get_days_for_month(i, current_date.year);
     }
 
-    totalDays += day;
+    totalDays += current_date.day;
 
     return totalDays;
 }
 
 /** \brief Reads user date input.
  *
- * \param day int*
- * \param month int*
- * \param year int*
- * \return void
+ * \return current_date struct
  *
  */
-void input_date(int *day, int *month, int *year)
+struct date input_date()
 {
+    struct date current_date;
+
     do
     {
-        // reset Pointers
-        *day = 0, *month = 0, *year = 0;
+        printf("Please input the date.\n\n");
 
         printf("Day: ");
-        scanf("%i", day);
+        scanf("%i", &current_date.day);
         fflush(stdin);
 
         printf("Month: ");
-        scanf("%i", month);
+        scanf("%i", &current_date.month);
         fflush(stdin);
 
         printf("Year: ");
-        scanf("%i", year);
+        scanf("%i", &current_date.year);
         fflush(stdin);
 
-        if (exists_date(*day, *month, *year) != 1)
+        if (exists_date(current_date) != 1)
         {
             printf(DATE_ERROR);
         }
@@ -153,5 +152,7 @@ void input_date(int *day, int *month, int *year)
             printf("\n");
         }
     }
-    while (exists_date(*day, *month, *year) != 1);
+    while (exists_date(current_date) != 1);
+
+    return current_date;
 }
