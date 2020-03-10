@@ -28,6 +28,7 @@
 Checks if the given year is a leap year based on the [calendar reform](https://en.wikipedia.org/wiki/Calendar_reform).
 
 |Parameter|Type|Description|
+|:--------|:---|:----------|
 |year|int|Year to check|
 
 ### `int` exists_date()
@@ -42,6 +43,7 @@ Checks if the given year is a leap year based on the [calendar reform](https://e
 Validates the given date.
 
 |Parameter|Type|Description|
+|:--------|:---|:----------|
 |current_date|struct|Date to validate|
 
 ### `int` get_days_for_month()
@@ -56,6 +58,7 @@ Validates the given date.
 Returns days of the given month (Including leapyears).
 
 |Parameter|Type|Description|
+|:--------|:---|:----------|
 |month|int|Range from 1 to 12|
 |year|int|Range from 1852 to 2400|
 
@@ -71,6 +74,7 @@ Returns days of the given month (Including leapyears).
 Calculation for the day of the year.
 
 |Parameter|Type|Description|
+|:--------|:---|:----------|
 |current_date|struct|Date for calculation|
 
 ### `struct` input_date()
