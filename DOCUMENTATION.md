@@ -25,6 +25,11 @@
   <br />
 </div>
 
+Checks if the given year is a leap year based on the [calendar reform](https://en.wikipedia.org/wiki/Calendar_reform).
+
+|Parameter|Type|Description|
+|year|int|Year to check|
+
 ### `int` exists_date()
 <div align="right">
   <br />
@@ -33,6 +38,11 @@
   </p>
   <br />
 </div>
+
+Validates the given date.
+
+|Parameter|Type|Description|
+|current_date|struct|Date to validate|
 
 ### `int` get_days_for_month()
 <div align="right">
@@ -43,6 +53,12 @@
   <br />
 </div>
 
+Returns days of the given month (Including leapyears).
+
+|Parameter|Type|Description|
+|month|int|Range from 1 to 12|
+|year|int|Range from 1852 to 2400|
+
 ### `int` day_of_the_year()
 <div align="right">
   <br />
@@ -52,6 +68,11 @@
   <br />
 </div>
 
+Calculation for the day of the year.
+
+|Parameter|Type|Description|
+|current_date|struct|Date for calculation|
+
 ### `struct` input_date()
 <div align="right">
   <br />
@@ -60,6 +81,8 @@
   </p>
   <br />
 </div>
+
+Reads user date input.
 
 ## Structs
 
