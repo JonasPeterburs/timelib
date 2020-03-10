@@ -25,5 +25,5 @@ make
 or use the build in compiler from CodeBlocks
 
 ## Links
-* [Documentation](https://github.com/jpeterburs/timelib/blob/update-docs/DOCUMENTATION.md)
+* [Documentation](https://github.com/jpeterburs/timelib/blob/master/DOCUMENTATION.md)
 * [GitHub](https://github.com/jpeterburs/timelib/)
