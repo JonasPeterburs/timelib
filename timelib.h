@@ -1,3 +1,7 @@
+/**
+ * \author Jonas Peterburs
+ * \date 14.01.2020
+ */
 #ifndef TIMELIB_H_INCLUDED
 #define TIMELIB_H_INCLUDED
 

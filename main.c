@@ -1,3 +1,7 @@
+/**
+ * \author Jonas Peterburs
+ * \date 14.01.2020
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "timelib.h"
