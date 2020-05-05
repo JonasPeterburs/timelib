@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="7F2C7D78D9815A1B">
-  <PROJECT FORMAT="1.00" NAME="timelib" AUTHOR="Jonas" CREATED="2020.02.25 09:55:28" MODIFIED="2020.03.10 09:12:25">
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="81AD9E918CAA886A">
+  <PROJECT FORMAT="1.00" NAME="timelib" AUTHOR="Jonas" CREATED="2020.02.25 09:55:28" MODIFIED="2020.05.05 10:36:43">
     <DIAGRAMS>
       <DIAGRAM FORMAT="1.00" ID="0" NAME="day_of_the_year" CREATED="2020.02.25 09:55:34" MODIFIED="2020.03.10 08:40:00">
         <LAYOUT FORMAT="1.00" COLUMNS="2" ROWS="12">
@@ -99,27 +99,12 @@
           <CONNECTION FORMAT="1.00" ID="42" FROM="41" TO="6" TEXT="" />
         </CONNECTIONS>
       </DIAGRAM>
-      <DIAGRAM FORMAT="1.00" ID="1" NAME="is_leapyear" CREATED="2020.03.10 08:17:34" MODIFIED="2020.03.10 08:17:34">
-        <LAYOUT FORMAT="1.00" COLUMNS="2" ROWS="7">
+      <DIAGRAM FORMAT="1.00" ID="1" NAME="is_leapyear" CREATED="2020.03.10 08:17:34" MODIFIED="2020.05.05 10:36:43">
+        <LAYOUT FORMAT="1.00" COLUMNS="3" ROWS="7">
           <ENTRIES>
-            <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
-              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
-                <TEXT><![CDATA[is_leapyear]]></TEXT>
-              </FIGURE>
-            </ENTRY>
-            <ENTRY COLUMN="0" ROW="1">
-              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
-                <TEXT><![CDATA[Start]]></TEXT>
-              </FIGURE>
-            </ENTRY>
-            <ENTRY COLUMN="0" ROW="2">
-              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="4">
-                <TEXT><![CDATA[If year is smaller than 1582?]]></TEXT>
-              </FIGURE>
-            </ENTRY>
             <ENTRY COLUMN="0" ROW="3">
-              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="10">
-                <TEXT><![CDATA[If year is devisible by 4 and 100 or by 400?]]></TEXT>
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="27">
+                <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="0" ROW="4">
@@ -128,31 +113,56 @@
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="0" ROW="5">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="31">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[is_leapyear]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="2">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[If year is smaller than 1582?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="3">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="10">
+                <TEXT><![CDATA[If year is devisible by 4 and 100 or by 400?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="4">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="26">
+                <TEXT><![CDATA[Output 1]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="5">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="18">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="6">
+            <ENTRY COLUMN="1" ROW="6">
               <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
                 <TEXT><![CDATA[End]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="1" ROW="2">
+            <ENTRY COLUMN="2" ROW="2">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="6">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="1" ROW="3">
-              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="12">
-                <TEXT><![CDATA[]]></TEXT>
-              </FIGURE>
-            </ENTRY>
-            <ENTRY COLUMN="1" ROW="4">
+            <ENTRY COLUMN="2" ROW="4">
               <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="24">
                 <TEXT><![CDATA[Output -1]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="1" ROW="5">
+            <ENTRY COLUMN="2" ROW="5">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="17">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
@@ -163,17 +173,19 @@
           <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="4" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="10" TEXT="false" />
           <CONNECTION FORMAT="1.00" ID="7" FROM="4" TO="6" TEXT="true" />
-          <CONNECTION FORMAT="1.00" ID="9" FROM="6" TO="12" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="14" FROM="10" TO="12" TEXT="true" />
+          <CONNECTION FORMAT="1.00" ID="30" FROM="27" TO="22" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="32" FROM="31" TO="18" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="19" FROM="18" TO="2" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="11" FROM="10" TO="22" TEXT="false" />
+          <CONNECTION FORMAT="1.00" ID="29" FROM="26" TO="18" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="20" FROM="17" TO="18" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="13" FROM="12" TO="24" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="23" FROM="22" TO="18" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="9" FROM="6" TO="24" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="11" FROM="10" TO="26" TEXT="true" />
           <CONNECTION FORMAT="1.00" ID="25" FROM="24" TO="17" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="28" FROM="10" TO="27" TEXT="false" />
+          <CONNECTION FORMAT="1.00" ID="33" FROM="22" TO="31" TEXT="" />
         </CONNECTIONS>
       </DIAGRAM>
-      <DIAGRAM FORMAT="1.00" ID="2" NAME="exists_date" CREATED="2020.03.10 08:17:44" MODIFIED="2020.03.10 08:27:42">
+      <DIAGRAM FORMAT="1.00" ID="2" NAME="exists_date" CREATED="2020.03.10 08:17:44" MODIFIED="2020.05.05 10:36:43">
         <LAYOUT FORMAT="1.00" COLUMNS="2" ROWS="7">
           <ENTRIES>
             <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
@@ -188,7 +200,7 @@
             </ENTRY>
             <ENTRY COLUMN="0" ROW="2">
               <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="4">
-                <TEXT><![CDATA[If the day is between 1 and 31, the month is between 1 and 12 and the year between 1582 and 2400?]]></TEXT>
+                <TEXT><![CDATA[If the day is not between 1 and 31, the month is not between 1 and 12 and the year is not between 1582 and 2400?]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="0" ROW="3">
@@ -247,7 +259,7 @@
           <CONNECTION FORMAT="1.00" ID="21" FROM="17" TO="19" TEXT="" />
         </CONNECTIONS>
       </DIAGRAM>
-      <DIAGRAM FORMAT="1.00" ID="3" NAME="get_days_for_month" CREATED="2020.03.10 08:18:19" MODIFIED="2020.03.10 09:12:25">
+      <DIAGRAM FORMAT="1.00" ID="3" NAME="get_days_for_month" CREATED="2020.03.10 08:18:19" MODIFIED="2020.05.05 10:36:43">
         <LAYOUT FORMAT="1.00" COLUMNS="3" ROWS="11">
           <ENTRIES>
             <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
@@ -262,7 +274,7 @@
             </ENTRY>
             <ENTRY COLUMN="0" ROW="2">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="4">
-                <TEXT><![CDATA[Declaration of a default year]]></TEXT>
+                <TEXT><![CDATA[Declaration of an average year]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="0" ROW="3">
@@ -308,7 +320,7 @@
             <ENTRY COLUMN="1" ROW="2">
               <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="12">
                 <TEXT><![CDATA[[0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-Using first entry in array, for better understanding]]></TEXT>
+Using first entry in array, for simpler understanding.]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="1" ROW="5">
