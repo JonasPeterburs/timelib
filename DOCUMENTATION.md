@@ -20,7 +20,7 @@
 <div align="right">
   <br />
   <p>
-    <img src="https://i.imgur.com/4lGyY0F.png" width="450">
+    <img src="images/is_leapyear.png" width="450">
   </p>
   <br />
 </div>
@@ -35,7 +35,7 @@ Checks if the given year is a leap year based on the [calendar reform](https://e
 <div align="right">
   <br />
   <p>
-    <img src="https://i.imgur.com/2TuPEKB.png" width="450">
+    <img src="images/exists_date.png" width="450">
   </p>
   <br />
 </div>
@@ -50,7 +50,7 @@ Validates the given date.
 <div align="right">
   <br />
   <p>
-    <img src="https://i.imgur.com/BPGD6Mp.png" width="450">
+    <img src="images/get_days_for_month.png" width="450">
   </p>
   <br />
 </div>
@@ -66,7 +66,7 @@ Returns days of the given month (Including leapyears).
 <div align="right">
   <br />
   <p>
-    <img src="https://i.imgur.com/TInZkOc.png" width="450">
+    <img src="images/day_of_the_year.png" width="450">
   </p>
   <br />
 </div>
@@ -81,7 +81,7 @@ Calculation for the day of the year.
 <div align="right">
   <br />
   <p>
-    <img src="https://i.imgur.com/SODLYXD.png" width="450">
+    <img src="images/input_date.png" width="450">
   </p>
   <br />
 </div>
