@@ -48,7 +48,7 @@ int exists_date(struct date current_date)
         printf(DATE_ERROR);
         return 0; // invalid date
     }
-    else if (current_date.month = 2 && current_date.day > 29)
+    else if (current_date.month == 2 && current_date.day > 29)
     {
         printf(DATE_ERROR);
         return 0; // invalid date
